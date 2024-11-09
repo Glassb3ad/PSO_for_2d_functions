@@ -1,7 +1,7 @@
 # test_math_operations.py
 import unittest
 import numpy as np
-from pso import Particle, calculateGlobalBest, generateInitialSwarm
+from pso import Particle, calculateGlobalBest, generateInitialSwarm, particleSwarmOptimization
 
 def testF(x):
     return x[0]
@@ -66,3 +66,19 @@ class TestParticles(unittest.TestCase):
         particle.updateBest(testF)
         self.assertEqual(particle.best[0], 1)
         self.assertEqual(particle.best[1], 1)
+
+class TestParticleSwarmOptimization(unittest.TestCase):
+    def test_returns_location_close_to_global_min_for_banana(self):
+        bananaGlobalMin = [1,1]
+        def banana(position, a=1, b=100):
+            x, y = position
+            return (a - x)**2 + b * (y - x**2)**2
+        
+        iterations=1000
+        lowerBound=-2
+        upperBound=2
+        swarmSize=100
+        globalBest, history = particleSwarmOptimization(fitness=banana, lowerBound=lowerBound, upperBound=upperBound, swarmSize=swarmSize, maxIterations=iterations)
+
+        self.assertAlmostEqual(bananaGlobalMin[0], globalBest[0])
+        self.assertAlmostEqual(bananaGlobalMin[1], globalBest[1])
