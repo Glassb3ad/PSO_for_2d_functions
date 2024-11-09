@@ -91,7 +91,7 @@ class TestParticleSwarmOptimization(unittest.TestCase):
         iterations=500
         lowerBound=-500
         upperBound=500
-        swarmSize=50
+        swarmSize=100
 
         globalBest, history = particleSwarmOptimization(fitness=schwefel2D, lowerBound=lowerBound, upperBound=upperBound, swarmSize=swarmSize, maxIterations=iterations) 
 
@@ -107,9 +107,27 @@ class TestParticleSwarmOptimization(unittest.TestCase):
         iterations=500
         lowerBound=-500
         upperBound=500
-        swarmSize=50
+        swarmSize=100
 
         globalBest, history = particleSwarmOptimization(fitness=schwefel1D, dimension=1, lowerBound=lowerBound, upperBound=upperBound, swarmSize=swarmSize, maxIterations=iterations) 
 
         self.assertEqual(globalBest.shape[0], 1)
         self.assertAlmostEqual(schwefel1DGlobalMin, globalBest[0], 4)
+
+    def test_returns_location_close_to_global_min_for_3d_schwefel(self):
+        schwefel3DGlobalMin = [420.9687,420.9687,420.9687]
+        def schwefel3D(position):
+            return 418.9829 * 3 - np.sum(position * np.sin(np.sqrt(np.abs(position))))
+        
+        iterations=1000
+        lowerBound=-500
+        upperBound=500
+        swarmSize=300
+
+        globalBest, history = particleSwarmOptimization(fitness=schwefel3D, dimension=3, lowerBound=lowerBound, upperBound=upperBound, swarmSize=swarmSize, maxIterations=iterations) 
+
+        self.assertEqual(globalBest.shape[0], 3)
+        self.assertAlmostEqual(schwefel3DGlobalMin[0], globalBest[0], 4)
+        self.assertAlmostEqual(schwefel3DGlobalMin[1], globalBest[1], 4)
+        self.assertAlmostEqual(schwefel3DGlobalMin[2], globalBest[2], 4)
+    
