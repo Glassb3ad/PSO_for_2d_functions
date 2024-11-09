@@ -19,7 +19,7 @@ Each particle in the swarm represents an input to the function. It remembers its
 
 ## PSO implementation
 
-The implementation rests heavily on Particle class that provides all methods for controlling particle's state. The other heavy lifter is particleSwarmOptimization() function which both updates swarm's state and records its history in order to visualize how swarm searches for solution.
+The implementation rests heavily on Particle class that provides all methods for controlling particle's state. The other heavy lifter is particleSwarmOptimization() function which both updates swarm's state and records its history in order to visualize how swarm searches for solution. All the relevant code for PSO can be found from pso.py file.
 
 ### particleSwarmOptimization()
 
@@ -41,9 +41,19 @@ particleSwarmOptimization() accepts inertia, cognitive and social parameters. Th
 
 The most central method in Particle class is updateVelocity() which does what it says. The equation for calculating new velocity is a sum of three parts: inertia, cognitive and social part.
 
-1. Intertia
-2. congnitive
-3. social
+I=inertia, C=cognitive, S=social, V=current velocity, P = current position, gB=global best, pB = personal best, R1 = random vector (same shape with velocity), R2 = random vector.
+
+1. Inertia = I \* V. Inertia part represents the weight of previous velocity.
+2. congnitive = C \* R1 \* (pB - P). This part motivates particles to move towards their personal best.
+3. social = S \* R2 \* (gB - P). This part motivates particles to move towards the global best.
+
+new velocity = inertia + cognitive + social
+
+Note that both cognitive and social parts are affected by random disturbances.
+
+After velocity is updated we use it to move particle to the next place with updateLocation() method that uses the following simpe equation:
+
+1. new location = current location + velocity
 
 ## Demonstrations
 
