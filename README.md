@@ -7,6 +7,16 @@ This repository includes:
 
 ## General
 
+PSO is a method for solving various optimization problems. An optimization problem involves finding the best possible solution for a given task. Typically, we treat tasks as functions and define the best solution as the input that the function maps to the desired output. In this case, we seek to find the input for which the function produces the smallest output. This is referred to as the global minimum.
+
+The set of possible solutions is called the search space, and it is often bound but not finite. For example, the search space might consist of real numbers in the range from 0 to 1. Solving the optimization task for function F is to find 𝑥 from the search space such that there is no 𝑦 in the search space for which F(x)>F(y).
+
+PSO is a nature-inspired algorithm that mimics birds' flocking behavior. The basic idea is to create a swarm of particles that move through the search space according to simple rules, and eventually, the population organizes itself around the optimal solution. Thus, PSO is a form of self-organization. The swarm's ability to find the optimal solution can be seen as an emergent property since no individual in the swarm has this ability on its own.
+
+Each particle in the swarm represents an input to the function. It remembers its best position, and its movement is influenced by its personal best position, the global best position (i.e., the best position any particle has visited), and by random disturbances. The use of randomness is what makes PSO a stochastic algorithm. The value or fitness of position p is F(p), where F is the objective function. The particles move for a given number of iterations, after which the global best is hopefully a good enough, if not the best, solution
+
+## Does PSO show intelligent behavior?
+
 ## PSO implementation
 
 ## Demonstrations
@@ -18,7 +28,6 @@ The following PSO demonstrations have constant inertia and cognitive and social 
 A relatively small swarm quickly converges near the optimal solution.
 
 https://github.com/user-attachments/assets/517655ba-0ab4-4749-a2ee-b1a474cc5967
-
 
 ### 2d schwefel function
 
