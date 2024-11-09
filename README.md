@@ -28,7 +28,7 @@ https://github.com/user-attachments/assets/0f38689a-576e-40b7-8201-f55a10e1e062
 
 But larger swarm almost certainly finds the global minimum from the search space. In the following swarm begins swarming around a local minimum but then some particles doing global search start registering better solution and eventually swarm moves towards the global minimum.
 
-https://github.com/user-attachments/assets/a996cd57-90a0-4500-8469-e0694993cc7d
+https://github.com/user-attachments/assets/5c596fce-c57c-4cd6-8a93-4d8a81eda4eb
 
 ### Banana function
 
