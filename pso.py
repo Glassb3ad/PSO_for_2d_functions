@@ -30,10 +30,10 @@ def calculateGlobalBest(f, curGlobal: np.ndarray, swarm: List[Particle]):
 
 def generateInitialSwarm(n: int, lowerBound: float, upperBound: float, dimension:Optional[float]=2) -> List[Particle]:
         swarm = []
-        for _ in range(n):
-            location = np.random.uniform(low=lowerBound, high=upperBound, size=dimension)
-            velocity = np.random.uniform(low=lowerBound, high=upperBound, size=dimension)
-            swarm.append(Particle(location, velocity, dimension))
+        location = np.random.uniform(low=lowerBound, high=upperBound, size=(n, dimension))
+        velocity = np.random.uniform(low=lowerBound, high=upperBound, size=(n, dimension))
+        for index in range(n):
+            swarm.append(Particle(location[index], velocity[index], dimension))
         return swarm        
 
 def particleSwarmOptimization(fitness: Callable, lowerBound: float, upperBound: float,  swarmSize: int, maxIterations: int, inertia: Optional[float]=0.7, cognitive: Optional[float]=2.05, social:Optional[float]=2.05, dimension:Optional[int]=2):
