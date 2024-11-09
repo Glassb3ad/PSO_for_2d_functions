@@ -2,7 +2,7 @@
 
 This repository includes:
 
-1. Particle Swarm Optimizer (PSO) for resoslving optimization problems that seek to find global minimum. This PSO implementation can optimize n-dimensional optimization problems so its not restricted to problems with 1 or 2 dimensional search space.
+1. Particle Swarm Optimizer (PSO) for resoslving optimization problems that seek to find global minimum. This PSO implementation can optimize problems with n-dimensional search space so its not restricted to 1 or 2 dimensions.
 2. Visualization tools for making simulation videos showing how PSO solves optimization problems with 1,2 or 3 dimensional search space.
 
 ## General
