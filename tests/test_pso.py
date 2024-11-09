@@ -1,4 +1,3 @@
-# test_math_operations.py
 import unittest
 import numpy as np
 from pso import Particle, calculateGlobalBest, generateInitialSwarm, particleSwarmOptimization
@@ -77,8 +76,40 @@ class TestParticleSwarmOptimization(unittest.TestCase):
         iterations=1000
         lowerBound=-2
         upperBound=2
-        swarmSize=100
+        swarmSize=50
         globalBest, history = particleSwarmOptimization(fitness=banana, lowerBound=lowerBound, upperBound=upperBound, swarmSize=swarmSize, maxIterations=iterations)
 
         self.assertAlmostEqual(bananaGlobalMin[0], globalBest[0])
         self.assertAlmostEqual(bananaGlobalMin[1], globalBest[1])
+
+    def test_returns_location_close_to_global_min_for_schwefel2D(self):
+        schwefel2DGlobalMin = [420.9687,420.9687]
+        def schwefel2D(position):
+            x, y = position
+            return 418.9829 * 2 - (x * np.sin(np.sqrt(abs(x))) + y * np.sin(np.sqrt(abs(y))))
+
+        iterations=500
+        lowerBound=-500
+        upperBound=500
+        swarmSize=50
+
+        globalBest, history = particleSwarmOptimization(fitness=schwefel2D, lowerBound=lowerBound, upperBound=upperBound, swarmSize=swarmSize, maxIterations=iterations) 
+
+        self.assertAlmostEqual(schwefel2DGlobalMin[0], globalBest[0], 4)
+        self.assertAlmostEqual(schwefel2DGlobalMin[1], globalBest[1], 4)
+
+    def test_returns_location_close_to_global_min_for_1d_schwefel(self):
+        schwefel1DGlobalMin = 420.9687
+        def schwefel1D(position):
+            x = position[0]
+            return 418.9829 - x * np.sin(np.sqrt(abs(x)))
+
+        iterations=500
+        lowerBound=-500
+        upperBound=500
+        swarmSize=50
+
+        globalBest, history = particleSwarmOptimization(fitness=schwefel1D, dimension=1, lowerBound=lowerBound, upperBound=upperBound, swarmSize=swarmSize, maxIterations=iterations) 
+
+        self.assertEqual(globalBest.shape[0], 1)
+        self.assertAlmostEqual(schwefel1DGlobalMin, globalBest[0], 4)

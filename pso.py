@@ -2,24 +2,25 @@ from typing import List, Callable, Optional
 import numpy as np
 
 class Particle:
-    def __init__(self, location: np.ndarray, velocity: np.ndarray):
+    def __init__(self, location: np.ndarray, velocity: np.ndarray, dimension:Optional[int]=2):
         self.location = location
         self.best = np.copy(location)
         self.velocity = velocity
+        self.dimension = dimension
     
     def updateBest(self, f):
         self.best = min([self.location, self.best], key=f)
 
     def updateVelocity(self, globalBest: np.ndarray, inertia: float, cognitive: float, social: float):
-        r1 = np.random.rand(2)
-        r2 = np.random.rand(2)
+        r1 = np.random.rand(self.dimension)
+        r2 = np.random.rand(self.dimension)
         self.velocity = (inertia * self.velocity) + (cognitive * r1 * (self.best - self.location)) + (social * r2 * (globalBest - self.location))   
     
     def updateLocation(self, lowerBound:Optional[float]=None , upperBound:Optional[float]=None):
         self.location = self.location + self.velocity
         if(lowerBound is not None and upperBound is not None):
-            self.location[0] = np.clip(self.location[0], lowerBound, upperBound)
-            self.location[1] = np.clip(self.location[1], lowerBound, upperBound)
+            for n in range(self.dimension):
+                self.location[n] = np.clip(self.location[n], lowerBound, upperBound)
 
 def calculateGlobalBest(f, curGlobal: np.ndarray, swarm: List[Particle]):
     newGlobal = curGlobal
@@ -27,17 +28,16 @@ def calculateGlobalBest(f, curGlobal: np.ndarray, swarm: List[Particle]):
         newGlobal = min([newGlobal, particle.location], key=f)
     return newGlobal
 
-def generateInitialSwarm(n: int, lowerBound: float, upperBound: float) -> List[Particle]:
+def generateInitialSwarm(n: int, lowerBound: float, upperBound: float, dimension:Optional[float]=2) -> List[Particle]:
         swarm = []
         for _ in range(n):
-            location = np.random.uniform(low=lowerBound, high=upperBound, size=2)
-            velocity = np.random.uniform(low=lowerBound, high=upperBound, size=2)
-            swarm.append(Particle(location, velocity))
+            location = np.random.uniform(low=lowerBound, high=upperBound, size=dimension)
+            velocity = np.random.uniform(low=lowerBound, high=upperBound, size=dimension)
+            swarm.append(Particle(location, velocity, dimension))
         return swarm        
 
-
-def particleSwarmOptimization(fitness: Callable, lowerBound: float, upperBound: float,  swarmSize: int, maxIterations: int, inertia: Optional[float]=0.7, cognitive: Optional[float]=2.05, social:Optional[float]=2.05):
-    swarm = generateInitialSwarm(swarmSize, lowerBound, upperBound)
+def particleSwarmOptimization(fitness: Callable, lowerBound: float, upperBound: float,  swarmSize: int, maxIterations: int, inertia: Optional[float]=0.7, cognitive: Optional[float]=2.05, social:Optional[float]=2.05, dimension:Optional[int]=2):
+    swarm = generateInitialSwarm(swarmSize, lowerBound, upperBound, dimension)
     globalBest = calculateGlobalBest(fitness, swarm[0].location, swarm)
     history = []
     iterationCount = 1

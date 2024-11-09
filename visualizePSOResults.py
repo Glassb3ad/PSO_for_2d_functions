@@ -10,8 +10,7 @@ def visualizeHistory(history, fitness, lowerBound, upperBound, iterations,filena
     X, Y = np.meshgrid(x, y)
     Z = fitness(np.array([X, Y]))
 
-    # Create a contour plot of the objective function
-
+    # Create a contour plot of the fitness function
     contour = ax.contour(X, Y, Z, 25, cmap='viridis')
     plt.colorbar(contour)
 
@@ -23,13 +22,13 @@ def visualizeHistory(history, fitness, lowerBound, upperBound, iterations,filena
     scat = ax.scatter([], [], color='r')
 
     # Text object for displaying iteration number
-    iteration_text = ax.text(0.05, 0.95, '', transform=ax.transAxes, fontsize=12, color='black')
+    iterationText = ax.text(0.05, 0.95, '', transform=ax.transAxes, fontsize=12, color='black')
 
     # Update function for animation
     def update(frame):
         positions = np.array(history[frame])
         scat.set_offsets(positions)  # Update particle positions
-        iteration_text.set_text(f'Iteration: {frame + 1}/{iterations}')
+        iterationText.set_text(f'Iteration: {frame + 1}/{iterations}')
 
         if frame % 10 == 0:  # Print progress every 10 frames (you can adjust this)
             print(f'Processing frame {frame + 1}/{iterations} ({(frame + 1) / iterations * 100:.2f}%)')
