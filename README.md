@@ -3,7 +3,7 @@
 This repository includes:
 
 1. Particle Swarm Optimizer (PSO) for resoslving optimization problems that seek to find global minimum. This PSO implementation can optimize n-dimensional optimization problems so its not restricted to 1d or 2d problems.
-2. Visualization tools for making simulation videos showing how PSO solves optimization problems with 1 or 2 dimensions.
+2. Visualization tools for making simulation videos showing how PSO solves optimization problems with 1,2 or 3 dimensional search space.
 
 ## General
 
@@ -17,7 +17,8 @@ The following PSO demonstrations have constant inertia and cognitive and social 
 
 A relatively small swarm quickly converges near the optimal solution.
 
-https://github.com/user-attachments/assets/035f87f2-2236-47c4-9879-5ece2c01b490
+https://github.com/user-attachments/assets/517655ba-0ab4-4749-a2ee-b1a474cc5967
+
 
 ### 2d schwefel function
 
@@ -37,5 +38,6 @@ https://github.com/user-attachments/assets/55229e3b-0f76-4d15-b6b3-18eb99d9d8e8
 
 ## Development
 
-run tests:
-python -m unittest discover tests
+run tests: python -m unittest discover tests
+
+tests might take some time due to using PSO with big swarms and high iteration count.
