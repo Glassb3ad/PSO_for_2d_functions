@@ -40,6 +40,7 @@ def particleSwarmOptimization(fitness: Callable, lowerBound: float, upperBound: 
     swarm = generateInitialSwarm(swarmSize, lowerBound, upperBound, dimension)
     globalBest = calculateGlobalBest(fitness, swarm[0].location, swarm)
     history = []
+    history.append([particle.location for particle in swarm])
     iterationCount = 1
     while iterationCount <= maxIterations:
         for particle in swarm:
