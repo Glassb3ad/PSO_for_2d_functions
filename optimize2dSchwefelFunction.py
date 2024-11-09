@@ -6,7 +6,7 @@ def schwefel2D(position):
     x, y = position
     return 418.9829 * 2 - (x * np.sin(np.sqrt(abs(x))) + y * np.sin(np.sqrt(abs(y))))
 
-iterations=200
+iterations=100
 lowerBound=-500
 upperBound=500
 swarmSize=100
