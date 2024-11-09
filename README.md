@@ -2,7 +2,7 @@
 
 This repository includes:
 
-1. Particle Swarm Optimizer (PSO) for resoslving optimization problems that seek to find global minimum. This PSO implementation can optimize n-dimensional optimization problems so its not restricted to 1d or 2d problems.
+1. Particle Swarm Optimizer (PSO) for resoslving optimization problems that seek to find global minimum. This PSO implementation can optimize n-dimensional optimization problems so its not restricted to problems with 1 or 2 dimensional search space.
 2. Visualization tools for making simulation videos showing how PSO solves optimization problems with 1,2 or 3 dimensional search space.
 
 ## General
@@ -35,6 +35,12 @@ https://github.com/user-attachments/assets/5c596fce-c57c-4cd6-8a93-4d8a81eda4eb
 With banana function (also known as Rosenbrock function) the swarm quickly locates the global minimum but it takes many iterations until particles stop doing global searches and swarm stabilizes around the optimal solution
 
 https://github.com/user-attachments/assets/55229e3b-0f76-4d15-b6b3-18eb99d9d8e8
+
+### 3d schwefel function
+
+PSO works well in 3d search space. At first swarm is stuck in local minimum but in the end the global minimum is found
+
+https://github.com/user-attachments/assets/408262bb-af77-4032-b91c-90d7245ce0ee
 
 ## Development
 
