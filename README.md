@@ -37,6 +37,6 @@ https://github.com/user-attachments/assets/55229e3b-0f76-4d15-b6b3-18eb99d9d8e8
 
 ## Development
 
-run tests:
-python -m unittest discover tests
+run tests: python -m unittest discover tests
+
 tests might take some time due to using PSO with big swarms and high iteration count.
