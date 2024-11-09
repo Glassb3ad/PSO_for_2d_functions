@@ -19,6 +19,32 @@ Each particle in the swarm represents an input to the function. It remembers its
 
 ## PSO implementation
 
+The implementation rests heavily on Particle class that provides all methods for controlling particle's state. The other heavy lifter is particleSwarmOptimization() function which both updates swarm's state and records its history in order to visualize how swarm searches for solution.
+
+### particleSwarmOptimization()
+
+1. initialize swarm with generateInitialSwarm()
+2. calculate initial global best
+3. record initial swarm state
+4. While iteration limit is not reached:
+   1. for each particle P in swarm:
+      1. update velocity
+      2. move particle in search space
+      3. update personal best
+   2. update global best
+   3. record swarm state
+5. return history and global best
+
+particleSwarmOptimization() accepts inertia, cognitive and social parameters. They are hyperparameters used in the most central operation of algorithm: velocity update
+
+### Particle class
+
+The most central method in Particle class is updateVelocity() which does what it says. The equation for calculating new velocity is a sum of three parts: inertia, cognitive and social part.
+
+1. Intertia
+2. congnitive
+3. social
+
 ## Demonstrations
 
 The following PSO demonstrations have constant inertia and cognitive and social coefficients. Only swarm sizes and iteration counts vary. All videos generated with tools implemented in this repository.
