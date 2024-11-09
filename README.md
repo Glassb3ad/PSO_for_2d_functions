@@ -17,7 +17,8 @@ The following PSO demonstrations have constant inertia and cognitive and social 
 
 A relatively small swarm quickly converges near the optimal solution.
 
-https://github.com/user-attachments/assets/035f87f2-2236-47c4-9879-5ece2c01b490
+https://github.com/user-attachments/assets/517655ba-0ab4-4749-a2ee-b1a474cc5967
+
 
 ### 2d schwefel function
 
