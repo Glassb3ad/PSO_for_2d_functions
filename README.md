@@ -11,7 +11,7 @@ This repository includes:
 
 ## Demonstrations
 
-The following PSO demonstrations have constant inertia and cognitive and social coefficients. Only swarm sizes and iteration counts vary
+The following PSO demonstrations have constant inertia and cognitive and social coefficients. Only swarm sizes and iteration counts vary. All videos generated with tools implemented in this repository.
 
 ### 1d schwefel function
 
