@@ -1,5 +1,5 @@
 from pso import particleSwarmOptimization
-from visualizePSOResults import visualizeHistory
+from visualize2dPSOResults import visualize2dPSOHistory
 import numpy as np
 
 def schwefel2D(position):
@@ -12,4 +12,4 @@ upperBound=500
 swarmSize=15
 
 globalBest, history = particleSwarmOptimization(fitness=schwefel2D, lowerBound=lowerBound, upperBound=upperBound, swarmSize=swarmSize, maxIterations=iterations) 
-visualizeHistory(filename="schwefel_function_PSO_optimization",history=history, lowerBound=lowerBound, upperBound=upperBound, fitness=schwefel2D, iterations=iterations)
+visualize2dPSOHistory(filename="schwefel_function_PSO_optimization",history=history, lowerBound=lowerBound, upperBound=upperBound, fitness=schwefel2D, iterations=iterations)

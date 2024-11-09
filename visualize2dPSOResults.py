@@ -2,7 +2,7 @@ import matplotlib.pyplot as plt
 import matplotlib.animation as animation
 import numpy as np
 
-def visualizeHistory(history, fitness, lowerBound, upperBound, iterations,filename="pso_optimization", ):
+def visualize2dPSOHistory(history, fitness, lowerBound, upperBound, iterations,filename="pso_optimization", ):
     #    Visualization using matplotlib and animation
     fig, ax = plt.subplots(figsize=(8, 6))
     x = np.linspace(lowerBound, upperBound, 400)
