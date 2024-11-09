@@ -6,10 +6,10 @@ def schwefel2D(position):
     x, y = position
     return 418.9829 * 2 - (x * np.sin(np.sqrt(abs(x))) + y * np.sin(np.sqrt(abs(y))))
 
-iterations=500
+iterations=200
 lowerBound=-500
 upperBound=500
-swarmSize=15
+swarmSize=100
 
-globalBest, history = particleSwarmOptimization(fitness=schwefel2D, lowerBound=lowerBound, upperBound=upperBound, swarmSize=swarmSize, maxIterations=iterations) 
-visualize2dPSOHistory(filename="schwefel_function_PSO_optimization",history=history, lowerBound=lowerBound, upperBound=upperBound, fitness=schwefel2D, iterations=iterations)
+globalBest, history = particleSwarmOptimization(fitness=schwefel2D, lowerBound=lowerBound, upperBound=upperBound, swarmSize=swarmSize, maxIterations=iterations)
+visualize2dPSOHistory(functionName="2d_schwefel_function", history=history, lowerBound=lowerBound, upperBound=upperBound, fitness=schwefel2D, iterations=iterations, optimalSolution=[420.9687,420.9687])

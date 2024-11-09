@@ -6,12 +6,12 @@ def schwefel1D(position):
     x = position[0]
     return 418.9829 - x * np.sin(np.sqrt(abs(x)))
 
-iterations=200
+iterations=500
 lowerBound=-500
 upperBound=500
-swarmSize=20
+swarmSize=100
 
 globalBest, history = particleSwarmOptimization(fitness=schwefel1D, dimension=1, lowerBound=lowerBound, upperBound=upperBound, swarmSize=swarmSize, maxIterations=iterations) 
 print(globalBest.shape[0])
 print(globalBest)
-visualize1dPSOHistory(filename="1d_schwefel_function_PSO_optimization",history=history, fitness=schwefel1D, lowerBound=lowerBound, upperBound=upperBound, iterations=iterations)
+visualize1dPSOHistory(functionName="1d_schwefel",history=history, fitness=schwefel1D, lowerBound=lowerBound, upperBound=upperBound, iterations=iterations, optimalSolution=np.array([420.9687]))
