@@ -15,7 +15,11 @@ The following PSO demonstrations have constant inertia and cognitive and social 
 
 ### 1d schwefel function
 
-A relatively small swarm quickly converges near the optimal solution.
+A relatively small
+
+https://github.com/user-attachments/assets/5261b322-c77c-4f34-9dd5-6cd4825a5e33
+
+ swarm quickly converges near the optimal solution.
 
 <video width="640" height="360"  controls autoplay loop>
   <source src="resources/1d_schwefel.mp4" type="video/mp4">
@@ -42,11 +46,7 @@ But larger swarm almost certainly finds the global minimum from the search space
 
 With banana function (also known as Rosenbrock function) the swarm quickly locates the global minimum but it takes many iterations until particles stop doing global searches and swarm stabilizes around the optimal solution
 
-<video width="640" height="360"  controls autoplay loop>
-
-  <source src="resources/banana.mp4" type="video/mp4">
-  Your browser does not support the video tag.
-</video>
+https://github.com/user-attachments/assets/55229e3b-0f76-4d15-b6b3-18eb99d9d8e8
 
 ## Development
 
