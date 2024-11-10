@@ -17,13 +17,15 @@ Each particle in the swarm represents an input to the function. It remembers its
 
 ## Does PSO show intelligent behavior?
 
-There is a conception of intelligence that focuses on system's ability to adapt to different environments. Its easy to interpret PSO as a methdod of solving specific task on different environments. Different environments here being objective functions with given range. PSO itself does not contain any information about how to behave in certain environments. Instead it uses methods that ables swarm to reach optimal solution in multitude of environments.
+There is a conception of intelligence that focuses on a system’s ability to adapt to different environments. It’s easy to interpret PSO as a method for solving specific tasks in various environments, with different environments here represented by objective functions with given ranges. PSO does not inherently contain information on how to behave in different environments. Instead, it uses methods that eventually organize the swarm around the optimal solution in a multitude of environments.
 
-The intelligent behavior is perhaps to be associated with the swarm only, since the behavior of individual particles is not itself intelligent because single particle is unable to adapt to different environments by itself.
+The intelligent behavior is perhaps best associated with the swarm as a whole, since the behavior of individual particles is not inherently intelligent. A single particle is unable to adapt to different environments on its own.
+
+However, intelligence of PSO can be undermined by competing conceptions of intelligence. For example, we cannot say that swarm understands or learns the problem it is working with: swarm cannot tell what function F returns for any x. This might be in contrast with neural networks which can actually learn functions (they learn which input maps to which output). The swarm simply converges to the point where the given function returns the lowest value.
 
 ## PSO implementation
 
-The implementation rests heavily on Particle class that provides all methods for controlling particle's state. The other heavy lifter is particleSwarmOptimization() function which both updates swarm's state and records its history in order to visualize how swarm searches for solution. All the relevant code for PSO can be found from pso.py file.
+The implementation relies heavily on the Particle class, which provides all the methods for controlling a particle’s state. Another key component is the particleSwarmOptimization() function, which both updates the swarm's state and records its history to visualize how the swarm searches for a solution. All relevant code for PSO can be found in the pso.py file.
 
 ### particleSwarmOptimization()
 
@@ -39,11 +41,11 @@ The implementation rests heavily on Particle class that provides all methods for
    3. record swarm state
 5. return history and global best
 
-particleSwarmOptimization() accepts inertia, cognitive and social parameters. They are hyperparameters used in the most central operation of algorithm: velocity update
+The particleSwarmOptimization() function accepts inertia, cognitive, and social parameters. These are hyperparameters used in the algorithm's most central operation: the velocity update.
 
 ### Particle class
 
-The most central method in Particle class is updateVelocity() which does what it says. The equation for calculating new velocity is a sum of three parts: inertia, cognitive and social part.
+The most essential method in the Particle class is updateVelocity(), which updates the particle's velocity. The equation for calculating the new velocity is a sum of three components: inertia, cognitive, and social.
 
 I=inertia, C=cognitive, S=social, V=current velocity, P = current position, gB=global best, pB = personal best, R1 = random vector (same shape with velocity), R2 = random vector.
 
@@ -55,39 +57,39 @@ new velocity = inertia + cognitive + social
 
 Now we see that the idea point of inertia, cognitive and social hyperparameters is to control how much particles give weight to global best (swarms social behavior), personal best (individual preference) and inertia (current velocity). By changing these hyperparameters we can, for example, try swarms where particles have more tendency to explore areas around their personal best.
 
-Note also that both cognitive and social parts are affected by random disturbances. Kennedy and Eberhart (pioneer researchers in swarm intelligence) gives two reasons for introducing randomness. 1. By randomly picking next position constrained by factors described in velocity equation, particle is protected from possibly biased decision heuristics. 2. Randomness introduces creativity since it makes particles to try new positions. (Kennedy and Eberhart 2001, qw) Randomness affect on swarms creativity is perhaps visible from the following figures that contain all position visited by the swarm during PSO. Left side is PSO with fixed R1 and R2 and the right side is the familiar PSO with random vectors.
+Note also that both the cognitive and social components are affected by random disturbances. Kennedy and Eberhart (pioneers in swarm intelligence) provide two reasons for introducing randomness: 1) By randomly selecting the next position within the constraints described in the velocity equation, particles are protected from potentially biased decision heuristics; and 2) randomness introduces creativity, encouraging particles to try new positions (Kennedy and Eberhart, 2001). The effect of randomness on swarm creativity is perhaps visible in the following figures, which show all positions visited by the swarm during PSO. The left side shows PSO with fixed R1 and R2, and the right side shows the familiar PSO with random factors.
 
 ![compare_fixed_and_random_PSO](https://github.com/user-attachments/assets/a95f0816-66ee-42fe-b426-df821e199325)
 
 ## Demonstrations
 
-The following PSO demonstrations have constant inertia and cognitive and social coefficients. Only swarm sizes and iteration counts vary. All videos generated with tools implemented in this repository.
+The following PSO demonstrations use constant inertia, cognitive, and social coefficients. Only the swarm sizes and iteration counts vary. All videos were generated with tools implemented in this repository.
 
 ### 1d schwefel function
 
-A relatively small swarm quickly converges near the optimal solution.
+A relatively small swarm quickly converges toward the optimal solution.
 
 https://github.com/user-attachments/assets/517655ba-0ab4-4749-a2ee-b1a474cc5967
 
 ### 2d schwefel function
 
-When searching optimal solution for 2d schwefel function, small swarm has a high risk to get stuck in local minima (global minima marked by blue star):
+When searching for the optimal solution to the 2D Schwefel function, a small swarm has a high risk of getting stuck in local minima (with the global minimum marked by a blue star):
 
 https://github.com/user-attachments/assets/0f38689a-576e-40b7-8201-f55a10e1e062
 
-But larger swarm almost certainly finds the global minimum from the search space. In the following swarm begins swarming around a local minimum but then some particles doing global search start registering better solution and eventually swarm moves towards the global minimum.
+However, a larger swarm almost certainly finds the global minimum within the search space. In the following example, the swarm initially gathers around a local minimum, but then some particles conducting a global search begin registering better solutions, and eventually, the swarm moves toward the global minimum.
 
 https://github.com/user-attachments/assets/5c596fce-c57c-4cd6-8a93-4d8a81eda4eb
 
 ### Banana function
 
-With banana function (also known as Rosenbrock function) the swarm quickly locates the global minimum but it takes many iterations until particles stop doing global searches and swarm stabilizes around the optimal solution
+With the banana function (also known as the Rosenbrock function), the swarm quickly locates the global minimum, but it takes many iterations for the particles to stop conducting global searches, and for the swarm to stabilize around the optimal solution.
 
 https://github.com/user-attachments/assets/55229e3b-0f76-4d15-b6b3-18eb99d9d8e8
 
 ### 3d schwefel function
 
-PSO works well in 3d search space. At first swarm is stuck in local minimum but in the end the global minimum is found
+PSO works well in a 3D search space. Initially, the swarm gets stuck in a local minimum, but eventually, the global minimum is found.
 
 https://github.com/user-attachments/assets/c9612e9d-20d2-4c40-8c7d-fa27b81f72a2
 
