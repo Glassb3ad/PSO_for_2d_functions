@@ -17,6 +17,10 @@ Each particle in the swarm represents an input to the function. It remembers its
 
 ## Does PSO show intelligent behavior?
 
+There is a conception of intelligence that focuses on system's ability to adapt to different environments. Its easy to interpret PSO as a methdod of solving specific task on different environments. Different environments here being objective functions with given range. PSO itself does not contain any information about how to behave in certain environments. Instead it uses methods that ables swarm to reach optimal solution in multitude of environments.
+
+The intelligent behavior is perhaps to be associated with the swarm only, since the behavior of individual particles is not itself intelligent because single particle is unable to adapt to different environments by itself.
+
 ## PSO implementation
 
 The implementation rests heavily on Particle class that provides all methods for controlling particle's state. The other heavy lifter is particleSwarmOptimization() function which both updates swarm's state and records its history in order to visualize how swarm searches for solution. All the relevant code for PSO can be found from pso.py file.
