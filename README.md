@@ -57,11 +57,13 @@ new velocity = inertia + cognitive + social
 
 Now we see that the idea point of inertia, cognitive and social hyperparameters is to control how much particles give weight to global best (swarms social behavior), personal best (individual preference) and inertia (current velocity). By changing these hyperparameters we can, for example, try swarms where particles have more tendency to explore areas around their personal best.
 
-Note also that both the cognitive and social components are affected by random disturbances. Kennedy and Eberhart (pioneers in swarm intelligence) provide two reasons for introducing randomness: 1) By randomly selecting the next position within the constraints described in the velocity equation, particles are protected from potentially biased decision heuristics; and 2) randomness introduces creativity, encouraging particles to try new positions (Kennedy and Eberhart, 2001). The effect of randomness on swarm creativity is perhaps visible in the following figures, which show all positions visited by the swarm during PSO. The left side shows PSO with fixed R1 and R2, and the right side shows the familiar PSO with random factors.
+Note also that both the cognitive and social components are affected by random disturbances. Kennedy and Eberhart (pioneers in swarm intelligence) provide two reasons for introducing randomness: 1) By randomly selecting the next position within the constraints described in the velocity equation, particles are protected from potentially biased decision heuristics; and 2) randomness introduces creativity, encouraging particles to try new positions (Kennedy and Eberhart, 2001). The effect of randomness on swarm creativity is perhaps visible in the following figures, which show all positions visited by the swarm during PSO. The left side shows PSO with fixed R1 and R2, and the right side shows the familiar PSO with random factors. 
 
 ![compare_fixed_and_random_PSO](https://github.com/user-attachments/assets/a95f0816-66ee-42fe-b426-df821e199325)
 
-## Demonstrations
+PSO with random factors clearly does more exploration than the fixed PSO. This means that stochastic PSO tries out more distant alternatives which can be thought as some form of creativity.
+
+##. Demonstrations
 
 The following PSO demonstrations use constant inertia, cognitive, and social coefficients. Only the swarm sizes and iteration counts vary. All videos were generated with tools implemented in this repository.
 
