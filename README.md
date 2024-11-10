@@ -92,3 +92,19 @@ https://github.com/user-attachments/assets/c9612e9d-20d2-4c40-8c7d-fa27b81f72a2
 run tests: python -m unittest discover tests
 
 tests might take some time due to using PSO with big swarms and high iteration count.
+
+Other dependencies:
+
+- matPlot
+- numpy
+
+The code includes sample optimization problems in separate files like optimizeBananaFunction.py. These were used to generate visuals shown in this documentation.
+
+## references
+
+The PSO implementation is based on the pseudocode found in Gad 2020. Also "general" and "PSO implementation" sections of this documentation rely heavily on this paper. The visualization tools were done together with chatGPT.
+
+Ahmed G. Gad, 2020, "Particle Swarm Optimization Algorithm and Its Applications:
+A Systematic Review", Archives of Computational Methods in Engineering (2022) 29:2531–2561.
+
+James Kennedy & Russell C. Eberhart, 2001, Swarm Intelligence, Academic Press.
