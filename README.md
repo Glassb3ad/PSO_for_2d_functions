@@ -85,7 +85,7 @@ https://github.com/user-attachments/assets/55229e3b-0f76-4d15-b6b3-18eb99d9d8e8
 
 PSO works well in 3d search space. At first swarm is stuck in local minimum but in the end the global minimum is found
 
-https://github.com/user-attachments/assets/408262bb-af77-4032-b91c-90d7245ce0ee
+https://github.com/user-attachments/assets/c9612e9d-20d2-4c40-8c7d-fa27b81f72a2
 
 ## Development
 
