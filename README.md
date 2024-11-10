@@ -53,6 +53,8 @@ Now we see that the idea point of inertia, cognitive and social hyperparameters 
 
 Note also that both cognitive and social parts are affected by random disturbances. Kennedy and Eberhart (pioneer researchers in swarm intelligence) gives two reasons for introducing randomness. 1. By randomly picking next position constrained by factors described in velocity equation, particle is protected from possibly biased decision heuristics. 2. Randomness introduces creativity since it makes particles to try new positions. (Kennedy and Eberhart 2001, qw) Randomness affect on swarms creativity is perhaps visible from the following figures that contain all position visited by the swarm during PSO. Left side is PSO with fixed R1 and R2 and the right side is the familiar PSO with random vectors.
 
+https://github.com/user-attachments/assets/c0875fbb-0fc1-4af0-8889-3aba3131d214
+
 After velocity is updated we use it to move particle to the next place with updateLocation() method that uses the following simpe equation:
 
 1. new location = current location + velocity
