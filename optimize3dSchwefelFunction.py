@@ -7,7 +7,7 @@ schwefel3DGlobalMin = [420.9687,420.9687,420.9687]
 def schwefel3D(position):
     return 418.9829 * 3 - np.sum(position * np.sin(np.sqrt(np.abs(position))))
 
-iterations=250
+iterations=300
 lowerBound=-500
 upperBound=500
 swarmSize=100
