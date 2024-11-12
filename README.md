@@ -63,7 +63,7 @@ Note also that both the cognitive and social components are affected by random d
 
 PSO with random factors clearly does more exploration than the fixed PSO. This means that stochastic PSO tries out more distant alternatives which can be thought as some form of creativity.
 
-##. Demonstrations
+## Demonstrations
 
 The following PSO demonstrations use constant inertia, cognitive, and social coefficients. Only the swarm sizes and iteration counts vary. All videos were generated with tools implemented in this repository.
 
